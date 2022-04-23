@@ -1,0 +1,68 @@
+import React, { Component } from "react";
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import getWeb3 from "../getWeb3";
+import '../App.css'
+
+class Navbar extends Component {
+
+  state = {accounts: null, isConnected: false}
+
+  async componentDidMount(){
+ 
+    // Get network provider and web3 instance.
+    console.log('University Page loaded')
+    const web3 = await getWeb3()
+    
+    try {
+      // Use web3 to get the user's accounts.
+      const accounts = await web3.eth.getAccounts()
+      this.setState({accounts: accounts[0], isConnected: true})
+    } catch (error) {
+      this.setState({accounts: " Not Connected ", isConnected: false,})
+    }
+};
+
+  render() {
+  return (
+    <Nav>
+        <StyledLink to="/"><h2>Home</h2></StyledLink>
+        <StyledLink to="/university">University</StyledLink>
+        <StyledLink to="/company">Company</StyledLink>
+        <EndNav>
+          <h4>ACCOUNT:{this.state.accounts}</h4>
+        </EndNav>
+    </Nav>
+  )
+  }
+}
+
+const Nav = styled.nav`
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.font};
+  font-size: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  list-style-type: none;
+  padding: 15px 0px 20px 50px;
+  box-shadow: 2px -9px 65px -17px rgba(0,0,0,0.75);`
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: ${props => props.theme.colors.font};
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
+
+const EndNav = styled.div`
+background-color: ${props => props.theme.colors.font};
+color: ${props => props.theme.colors.background};
+border-radius: 50px;
+padding: 5px 15px 5px 15px;
+  margin-left: auto;
+  margin-right: 40px;`
+
+
+export default Navbar
