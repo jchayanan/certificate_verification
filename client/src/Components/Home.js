@@ -37,6 +37,7 @@ const Paragraph = styled.p`
 
 const Button = styled.button`
   padding: 15px;
+  font-weight: 700;
   border-radius: 5px;
   border: 0px solid;
   margin: 20px;

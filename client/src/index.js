@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
   * {
     @import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@400;500;700;900&display=swap');
     font-family: 'Yantramanav', sans-serif;
-    font-weight: 700;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
