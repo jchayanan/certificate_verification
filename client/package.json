@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://jchayanan.github.io/certificate_verification",
+  "homepage": "https://jchayanan.github.io/certificate_verification/",
   "private": true,
   "dependencies": {
     "@truffle/contract": "^4.5.7",
