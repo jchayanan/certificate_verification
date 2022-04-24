@@ -23,11 +23,12 @@ export class University extends Component {
       chainId: null,
       result: null,
       ipfsHash: null,
-      firstname: "",
-      lastname: "",
-      university: "",
-      acronym: "",
-      course: "",
+      certId:'',
+      firstname: '',
+      lastname: '',
+      university: '',
+      acronym: '',
+      course: '',
       buffer: null,
       issuer: null,
       errors: [],
@@ -157,6 +158,7 @@ export class University extends Component {
               contract.getPastEvents("CertificateGenerated");
               console.log(certId);
               console.log(result.events.CertificateGenerated.returnValues);
+              this.setState({cert})
             },
             (error) => {
               console.log(error);
