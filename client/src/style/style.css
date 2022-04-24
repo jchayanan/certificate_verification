@@ -100,7 +100,7 @@ input:focus {
 .university-acronym{grid-area: acronym;}.date{grid-area: date}
 .modal-footer{grid-area: footer; display: flex; justify-content: center; gap:20px }
 
-.ipfs-image{grid-area: ipfs-image}.verify{align-self: center;}
+.ipfs-image{grid-area: ipfs-image; height: 150px; width: 200px;}.verify{align-self: center;}
 
 .modal-grid p {
     font-weight: 100;

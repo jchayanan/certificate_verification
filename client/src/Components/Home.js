@@ -10,7 +10,7 @@ const Div = styled.div`
 const Container = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.background};
-  width: 60%;
+  width: 32%;
   margin: 10% auto;`
 
 const Header = styled.h1`
@@ -67,7 +67,7 @@ function Home() {
       <Container>
       <Header>Certificate System</Header>
       <Subheader>Using Ethereum Blockchain</Subheader>
-      <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam ultrices, ultricies enim ullamcorper, volutpat lorem. Proin ullamcorper elit quis pellentesque lacinia. Duis sed nisi ex. Mauris venenatis lacus at faucibus molestie. Maecenas.</Paragraph>
+      <Paragraph>A Decentralized Certificate Issuance and Verification System to create certificates that are Immutable, Cryptographically Secured, and have Zero Downtime. All powered by decentralized Ethereum Smart Contracts</Paragraph>
       <StyledLink className="left-button" to="/university"><Button>ISSUE CERTIFICATE</Button></StyledLink>
       <StyledLink className="right-button" to="/company"><Button>VIEW CERTIFICATE</Button></StyledLink>
       </Container>

@@ -11,7 +11,6 @@ contract Certification {
     constructor() {
         admin = 0x3084Ef65c0FDeD7F126E58Dee6F9C2f1BCF6f0d7;
         isIssuer[admin] = true;
-        isIssuer[0x18Cc1Cf8756313267e437B8cde208bc13796E401] = true;
         isIssuer[0xf19Cb762c455C3C8a21436e95DF0e67079993Cb4] = true;
     }
 

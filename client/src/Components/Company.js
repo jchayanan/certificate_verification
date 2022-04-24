@@ -97,8 +97,7 @@ class Company extends Component {
           <Header>
             <h2>Company</h2>
             <p style={{ fontWeight: 100 }}>
-              lorem Incididunt sint tempor amet pariatur sint et ullamco commodo
-              Qui ut et deserunt culpa esse..
+            You may key in the certificate id to view the Verified Certificate created on the Credentials Ethereum Blockchain
             </p>
           </Header>
           <form className="cert-id-form">
@@ -149,12 +148,14 @@ class Company extends Component {
             </div>
           <div className="modal-footer">
           <div className="ipfs-image">
-          <div style={{ display: this.state.loading ? "block" : "none", margin: "0 auto", width: "10%"}}>
+          <a href={`https://ipfs.io/ipfs/${this.state.ipfshash}`} target="_blank" rel="noopener noreferrer">
+          <div style={{ display: this.state.loading ? "block" : "none", margin: "50px", width: "30px", position: "absolute", marginLeft: 90, marginTop:60}}>
           <ClapSpinner color="#686769" />
           </div>
+          </a>
           <a href={`https://ipfs.io/ipfs/${this.state.ipfshash}`} target="_blank" rel="noopener noreferrer">
           <img 
-            src={`https://ipfs.io/ipfs/${this.state.ipfshash}`} 
+            src={`https://ipfs.io/ipfs/${this.state.ipfshash}`}
             alt="cer"
             onLoad={() => this.setState({loading: false})}
             onError={(event) => event.target.style.display = 'none'} />

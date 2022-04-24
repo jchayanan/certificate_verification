@@ -80,8 +80,7 @@ export default class Admin extends Component {
         <Container>
           <h1>Admin</h1>
           <p1>
-            Officia dolore qui est officia ea in quis ipsum.Mollit laborum
-            commodo minim ex velit cillum qui ullamco ut.
+            Add issuer by wallet address.
           </p1>
           <form className="issuer-form">
             <input
