@@ -42,7 +42,7 @@ export default class Admin extends Component {
     e.preventDefault();
     const { accounts, contract } = this.state;
     const issuer = await contract.methods.getIssuer(accounts[0]).call()
-    if(issuer == true){
+    if(issuer === true){
       try {
         await contract.methods
         .issuerRegister(this.state.address)

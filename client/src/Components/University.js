@@ -23,7 +23,8 @@ export class University extends Component {
       chainId: null,
       result: null,
       ipfsHash: null,
-      certId:'',
+      certId: '',
+      showId: '',
       firstname: '',
       lastname: '',
       university: '',
@@ -121,7 +122,7 @@ export class University extends Component {
       const d = new Date();
       const issuer = await contract.methods.getIssuer(accounts[0]).call();
       console.log(issuer);
-      if (issuer == true) {
+      if (issuer === true) {
         if (this.state.buffer != null) {
           const result = await ipfs.files.add(this.state.buffer);
           const ipfsHash = await result[0].hash;
@@ -158,7 +159,7 @@ export class University extends Component {
               contract.getPastEvents("CertificateGenerated");
               console.log(certId);
               console.log(result.events.CertificateGenerated.returnValues);
-              this.setState({cert})
+              this.setState({certId : certId, showId: true})
             },
             (error) => {
               console.log(error);
@@ -274,6 +275,7 @@ export class University extends Component {
               ISSUE CERTIFICATE
             </FormButton>
           </Container>
+          <CertID style={{display: this.state.showId ? "block" : "none"}} >{this.state.certId}</CertID>
           <div style={{display: this.state.errors.length > 0 ? "block" : "none"}}>
           <Error>
           {errors.map(error => (
@@ -325,6 +327,17 @@ const Error = styled.div`
     border-radius: 10px;
     padding: 20px;
     color: #faad14;
+`;
+
+const CertID = styled.div`
+  box-shadow: 4px 7px 24px -5px rgb(0 0 0 / 75%);
+  display: block;
+  position: absolute;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translate(-50%);
 `;
 
 export default University;
