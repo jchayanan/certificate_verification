@@ -82,7 +82,6 @@ export class University extends Component {
 
   refreshPage() {
     window.location.reload();
-    console.log("clicked!1");
   }
 
   validate(name, lastname, university, acronym, course) {
@@ -275,7 +274,7 @@ export class University extends Component {
               ISSUE CERTIFICATE
             </FormButton>
           </Container>
-          <CertID style={{display: this.state.showId ? "block" : "none"}} >{this.state.certId}</CertID>
+          <CertID style={{display: this.state.showId ? "block" : "none"}} >This is Certificate ID {this.state.certId}</CertID>
           <div style={{display: this.state.errors.length > 0 ? "block" : "none"}}>
           <Error>
           {errors.map(error => (
