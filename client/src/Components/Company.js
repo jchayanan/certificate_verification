@@ -95,11 +95,11 @@ class Company extends Component {
       <Div>
         <Container>
           <Header>
-            <h2>Company</h2>
+            View Certificate
+            </Header>
             <p style={{ fontWeight: 100 }}>
             You may key in the certificate id to view the Verified Certificate created on the Credentials Ethereum Blockchain
             </p>
-          </Header>
           <form className="cert-id-form">
             <input
               className="cert-id"
@@ -201,7 +201,11 @@ const SectionButton = styled.div`
 `
 
 const Header = styled.div`
-  margin-bottom: 20px
+  display: block;
+  color: ${(props) => props.theme.colors.font};
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: bold;
 `;
 
 export default Company

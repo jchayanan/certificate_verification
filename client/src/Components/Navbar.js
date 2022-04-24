@@ -26,11 +26,11 @@ class Navbar extends Component {
   render() {
   return (
     <Nav>
-        <StyledLink to="/"><h2>Home</h2></StyledLink>
+        <StyledLink style={{fontWeight: "bold"}} to="/">Home</StyledLink>
         <StyledLink to="/university">University</StyledLink>
         <StyledLink to="/company">Company</StyledLink>
         <EndNav>
-          <h4>ACCOUNT:{this.state.accounts}</h4>
+          ACCOUNT:{this.state.accounts}
         </EndNav>
     </Nav>
   )

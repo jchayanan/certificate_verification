@@ -13,14 +13,14 @@ const Container = styled.div`
   width: 32%;
   margin: 10% auto;`
 
-const Header = styled.h1`
+const Header = styled.div`
   display: block;
   color: ${(props) => props.theme.colors.font};
   font-size: 50px;
   letter-spacing: 8px;
 `;
 
-const Subheader = styled.p`
+const Subheader = styled.div`
   display: block;
   color: ${(props) => props.theme.colors.font2};
   font-size: 20px;
@@ -28,12 +28,13 @@ const Subheader = styled.p`
   margin-bottom: 40px;
   letter-spacing: 5px;
 `
-const Paragraph = styled.p`
+const Paragraph = styled.div`
   display: inline-block;
   color: ${(props) => props.theme.colors.font};
   font-size: 20px;
   text-align: left;
-  letter-spacing: 1px;`
+  letter-spacing: 1px;
+  `
 
 const Button = styled.button`
   padding: 15px;
