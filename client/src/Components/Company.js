@@ -129,7 +129,8 @@ class Company extends Component {
           overlayClassName="modal-overlay"
           onRequestClose={this.handleCloseModal}
         >
-          <div style={{paddingLeft: 97}} >Cerrtificate</div>
+          <div style={{fontSize: 40, fontWeight: 600}} >Cerrtificate</div>
+          <hr></hr>
           <div className="modal-grid">
             <div className="candidate-name">
               <SubHeader>Name</SubHeader>
