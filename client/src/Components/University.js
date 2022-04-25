@@ -315,7 +315,7 @@ const Form = styled.form`
   text-align: left;
   padding-left: 30px;
   @media (max-height: 768px) {
-    padding-left: 30px;
+    padding-left: 35px;
   }
   `
 
