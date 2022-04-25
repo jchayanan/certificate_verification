@@ -30,7 +30,9 @@ class Navbar extends Component {
         <StyledLink to="/university">University</StyledLink>
         <StyledLink to="/company">Company</StyledLink>
         <EndNav>
+          <StyledLink style={{color: 'white'}} to="/admin">
           <span>💼</span>:{this.state.accounts}
+          </StyledLink>
         </EndNav>
     </Nav>
   )

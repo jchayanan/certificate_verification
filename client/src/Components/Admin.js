@@ -75,6 +75,28 @@ export default class Admin extends Component {
   }
 
   render() {
+    if (!this.state.web3) {
+      return (
+        <Div>
+          <img
+            src={"/images/metamask.png"}
+            style={{ margin: "40px" }}
+            alt="metamask logo"
+            height="200"
+            width="200"
+          />
+          <h1>Can not detect to Web3 Provider</h1>
+          <h1>Please make sure you have connected to your wallet </h1>
+          <h1>And refresh this page. </h1>
+          <Button
+            onClick={() => window.location.reload()}
+            style={{ width: 100, fontSize: 20 }}
+          >
+            OK
+          </Button>
+        </Div>
+      );
+    }
     return (
       <Div>
         <Container>
