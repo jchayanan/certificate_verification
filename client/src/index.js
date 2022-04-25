@@ -33,7 +33,6 @@ const theme = {
 
 ReactDOM.render(
   <BrowserRouter>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>

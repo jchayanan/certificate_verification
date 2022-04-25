@@ -313,9 +313,7 @@ const Form = styled.form`
   grid-row-start: 2;
   grid-row-end: 3;
   text-align: left;
-  padding-left: 30px;
   @media (max-height: 768px) {
-    padding-left: 35px;
   }
   `
 
