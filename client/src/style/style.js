@@ -35,4 +35,6 @@ export const Div = styled.div`
                 opacity: 1;
             }
           };
-  `
+  @media (max-height: 768px) {
+    margin-top: 30px;
+  }`

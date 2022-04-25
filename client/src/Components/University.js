@@ -293,13 +293,18 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 60px 1fr 60px;
   grid-template-rows: 50px 1fr 120px;
-  justify-items: center;
   background-color: #ffffff;
   width: 500px;
   height: 650px;
   margin: 0px auto;
   box-shadow: 4px 7px 24px -5px rgba(0,0,0,0.75);
-  border-radius: 10px;`
+  border-radius: 10px;
+  @media (max-height: 868px) {
+    grid-template-rows: 28px 450px;
+    width: 450px;
+    grid-template-columns: 35px 1fr 35px;
+    height: 575px;
+  }`
 
 const Form = styled.form`
   width: 100%;
@@ -309,6 +314,9 @@ const Form = styled.form`
   grid-row-end: 3;
   text-align: left;
   padding-left: 30px;
+  @media (max-height: 768px) {
+    padding-left: 30px;
+  }
   `
 
 const FormButton = styled(Button)`

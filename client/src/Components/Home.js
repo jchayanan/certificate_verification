@@ -65,7 +65,7 @@ const StyledLink = styled(Link)`
 
 function Home() {
   return (
-    <Div>
+    <Div className="home">
       <Container>
       <Header>Certificate System</Header>
       <Subheader>Using Ethereum Blockchain</Subheader>
