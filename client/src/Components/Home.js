@@ -10,7 +10,7 @@ const Div = styled.div`
 const Container = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.background};
-  width: 32%;
+  width: 60%;
   margin: 10% auto;`
 
 const Header = styled.div`

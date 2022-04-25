@@ -1,3 +1,7 @@
+html {
+    overflow: hidden;
+}
+
 .university-form > input:not(.input-file){
     border-radius: 5px;
     border-style: solid;
