@@ -168,7 +168,7 @@ class Company extends Component {
           </a>
           </div>
           <div className="verify">
-          <h1>Certificate Verified<span>✅</span></h1>
+          <div style={{fontSize: 30, fontWeight: 400}}>Certificate Verified<span>✅</span></div>
           </div>
           </div>
           </div>

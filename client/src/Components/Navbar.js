@@ -30,7 +30,7 @@ class Navbar extends Component {
         <StyledLink to="/university">University</StyledLink>
         <StyledLink to="/company">Company</StyledLink>
         <EndNav>
-          ACCOUNT:{this.state.accounts}
+          <span>💼</span>:{this.state.accounts}
         </EndNav>
     </Nav>
   )
@@ -46,7 +46,7 @@ const Nav = styled.nav`
   gap: 30px;
   list-style-type: none;
   padding: 15px 0px 20px 50px;
-  box-shadow: 2px -9px 65px -17px rgba(0,0,0,0.75);`
+  box-shadow: 2px -24px 35px 8px rgb(0 0 0 / 75%)`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -60,7 +60,7 @@ const EndNav = styled.div`
 background-color: ${props => props.theme.colors.font};
 color: ${props => props.theme.colors.background};
 border-radius: 50px;
-padding: 5px 15px 5px 15px;
+padding: 0px 15px 3px 15px;
   margin-left: auto;
   margin-right: 40px;
   overflow: hidden;

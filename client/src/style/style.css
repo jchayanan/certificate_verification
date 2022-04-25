@@ -68,7 +68,7 @@ input:focus {
 
 .modal {
     position: absolute;
-    padding: 50px;
+    padding: 30px 25px 25px 35px;
     background-color: #f2f2f2;
     width: 800px;
     top: 50%;
