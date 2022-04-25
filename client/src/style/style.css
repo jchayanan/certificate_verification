@@ -68,7 +68,7 @@ input:focus {
 
 .modal {
     position: absolute;
-    padding: 30px 25px 25px 35px;
+    padding: 15px 25px 25px 35px;
     background-color: #f2f2f2;
     width: 800px;
     top: 50%;
@@ -113,4 +113,27 @@ input:focus {
 .modal img {
     width: 210px;
     height: 150px;
+}
+
+.custom-shape-divider-bottom-1650914740 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1650914740 svg {
+    position: relative;
+    display: block;
+    width: calc(221% + 1.3px);
+    height: 263px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1650914740 .shape-fill {
+    fill: #6371E5;
+    z-index: -99;
 }

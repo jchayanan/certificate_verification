@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
     colors: {
-      background: "#ffffff",
+      background: "#ffffff00",
       font: "#353535",
       font2: "#8b92a1"
     },

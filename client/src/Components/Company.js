@@ -184,7 +184,7 @@ const Container = styled.div`
   width: 500px;
   margin: 0px auto;
   padding: 50px 50px 40px 50px; 
-  box-shadow: 4px 7px 24px -5px rgba(0,0,0,0.75);
+  box-shadow: 5px 8px 29px -13px rgb(0 0 0 / 75%);
   border-radius: 10px;
   text-align: left;
 `
