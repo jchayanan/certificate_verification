@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import Certification from "../contracts/Certification.json";
-import getWeb3 from "../getWeb3";
 import { decrypt } from "./decrypt";
 import { Button, Div } from "../style/style";
 import { ClapSpinner } from "react-spinners-kit";
 import ReactModal from 'react-modal';
+import Web3 from "web3"
+import Certification from "../contracts/Certification.json";
+const contract = require("@truffle/contract");
+const CertificationInstance = contract(Certification);
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 class Company extends Component {
   constructor(props) {
@@ -31,25 +34,21 @@ class Company extends Component {
   }
 
   async componentDidMount(){
- 
+
+    let web3 = new Web3(new HDWalletProvider({
+      mnemonic: {
+        phrase: 'coral thunder claim crisp rack goat roast crane monster turtle verify group'
+      },
+      providerOrUrl: "https://ropsten.infura.io/v3/4e5baf52beec44dd906ec5245fbe25dc"
+    }))
+    
+    
     // Get network provider and web3 instance.
     console.log('Company Page loaded')
-    const web3 = await getWeb3()
-
-    // Get the contract instance.
-    const networkId = await web3.eth.net.getId()
-    const deployedNetwork = Certification.networks[networkId]
-    console.log('University Page loaded after web3')
-    const instance = new web3.eth.Contract(
-      Certification.abi,
-      deployedNetwork && deployedNetwork.address,
-    )
-    // Set web3, accounts, and contract to the state, and then proceed with an
-    // example of interacting with the contract's methods.
-    this.setState({ web3, contract: instance })
-    console.log(this.state.contract)
-
-  };
+    CertificationInstance.setProvider(web3.currentProvider);
+    console.log(CertificationInstance);
+    console.log(web3.currentProvider);
+  }
 
   handleChange(event){
     this.setState({
@@ -60,11 +59,14 @@ class Company extends Component {
     console.log(event.target.name, event.target.value)
   }
 
+
+
   submitId = async (e) => {
     e.preventDefault();
     const { contract, certId } = this.state;
+    console.log( contract )
     try {
-      const certificate = await contract.methods.getCertificate(certId).call();
+      const certificate = await CertificationInstance.deployed().then((ins) => ins.getCertificate(certId))
       console.log(certificate);
       console.log("Name", decrypt(certificate[0], certId));
       console.log("University", certificate[1]);
@@ -127,27 +129,27 @@ class Company extends Component {
           overlayClassName="modal-overlay"
           onRequestClose={this.handleCloseModal}
         >
-          <h1 style={{paddingLeft: 97}} >Cerrtificate</h1>
+          <div style={{paddingLeft: 97}} >Cerrtificate</div>
           <div className="modal-grid">
             <div className="candidate-name">
-              <h4>Name</h4>
-              <p>{this.state.name}</p>
+              <SubHeader>Name</SubHeader>
+              {this.state.name}
             </div>
             <div className="course">
-              <h4>Course Name</h4>
-              <p>{this.state.course}</p>
+              <SubHeader>Course Name</SubHeader>
+              {this.state.course}
             </div>
             <div className="university">
-              <h4>University Name</h4>
-              <p>{this.state.university}</p>
+              <SubHeader>University Name</SubHeader>
+              {this.state.university}
             </div>
             <div className="university-acronym">
-              <h4>University Acronym</h4>
-              <p>SWU</p>
+              <SubHeader>University Acronym</SubHeader>
+              {this.state.acronym}
             </div>
             <div className="date">
-              <h4>Date</h4>
-              <p>{this.state.date}</p>
+              <SubHeader>Date</SubHeader>
+              {this.state.date}
             </div>
           <div className="modal-footer">
           <div className="ipfs-image">
@@ -186,6 +188,7 @@ const Container = styled.div`
   text-align: left;
 `
 
+
 const IdContainer = styled(Container)`
   padding: 8px;
     margin-top: 30px;
@@ -216,6 +219,12 @@ const Header = styled.div`
   font-size: 30px;
   letter-spacing: 3px;
   font-weight: bold;
+`;
+
+const SubHeader = styled(Header)`
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0px;
 `;
 
 export default Company
