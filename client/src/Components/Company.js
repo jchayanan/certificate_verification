@@ -116,6 +116,9 @@ class Company extends Component {
             </ViewButton>
           </SectionButton>
         </Container>
+        <IdContainer>
+          For Example Certificate : ed52f477-82b5-4b77-85e4-ee910a24d2ad
+        </IdContainer>
         <ReactModal
           isOpen={this.state.showModal}
           ariaHideApp={false}
@@ -182,6 +185,13 @@ const Container = styled.div`
   border-radius: 10px;
   text-align: left;
 `
+
+const IdContainer = styled(Container)`
+  padding: 8px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 500;
+`;
 
 const ViewButton = styled(Button)`
   position: absolute;

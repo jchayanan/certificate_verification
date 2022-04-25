@@ -62,7 +62,10 @@ color: ${props => props.theme.colors.background};
 border-radius: 50px;
 padding: 5px 15px 5px 15px;
   margin-left: auto;
-  margin-right: 40px;`
+  margin-right: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;`
 
 
 export default Navbar
