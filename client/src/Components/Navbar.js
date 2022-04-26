@@ -68,7 +68,7 @@ padding: 0px 15px 3px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  @media (max-width: 360px) {
+  @media (max-width: 414px) {
     display: none;
   }`
 

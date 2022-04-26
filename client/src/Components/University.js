@@ -305,7 +305,7 @@ const Container = styled.div`
     grid-template-columns: 35px 1fr 35px;
     height: 575px;
   }
-  @media (min-width: 360px) {
+  @media (min-width: 414px) {
     width: 320px;
     height: 560px;
   }`

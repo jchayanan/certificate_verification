@@ -187,7 +187,7 @@ const Container = styled.div`
   box-shadow: 5px 8px 29px -13px rgb(0 0 0 / 75%);
   border-radius: 10px;
   text-align: left;
-  @media (max-width: 360px) {
+  @media (max-width: 414px) {
     width: 300px;
   }
 `
