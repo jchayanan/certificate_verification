@@ -67,7 +67,10 @@ padding: 0px 15px 3px 15px;
   margin-right: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;`
+  white-space: nowrap;
+  @media (max-width: 360px) {
+    display: none;
+  }`
 
 
 export default Navbar

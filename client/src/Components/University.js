@@ -304,6 +304,10 @@ const Container = styled.div`
     width: 450px;
     grid-template-columns: 35px 1fr 35px;
     height: 575px;
+  }
+  @media (min-width: 360px) {
+    width: 320px;
+    height: 560px;
   }`
 
 const Form = styled.form`

@@ -11,22 +11,31 @@ const Container = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.background};
   width: 60%;
-  margin: 10% auto;`
+  margin: 10% auto;
+  @media (min-width: 360px) {
+    margin: 5% auto;
+  }`
 
 const Header = styled.div`
   display: block;
   color: ${(props) => props.theme.colors.font};
   font-size: 50px;
   letter-spacing: 8px;
+  @media (max-width:360px){
+    font-size: 30px;
+  }
 `;
 
 const Subheader = styled.div`
   display: block;
   color: ${(props) => props.theme.colors.font2};
   font-size: 20px;
-  margin-top: -10px;
+  margin-top: -5px;
   margin-bottom: 40px;
   letter-spacing: 5px;
+  @media (min-width: 360px) {
+    font-size: 10px;
+  }
 `
 const Paragraph = styled.div`
   display: inline-block;
@@ -34,6 +43,9 @@ const Paragraph = styled.div`
   font-size: 20px;
   text-align: left;
   letter-spacing: 1px;
+  @media (max-width: 360px) {
+    letter-spacing: -1px;
+  }
   `
 
 const Button = styled.button`
