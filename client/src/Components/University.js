@@ -10,10 +10,19 @@ import { Button, Div } from "../style/style";
 import '../style/style.css';
 
 const options = [
-  { value: 'Srinakarinwirot University', label: 'Srinakarinwirot University' },
-  { value: 'Chulalongkorn university', label: 'Chulalongkorn university' },
-  { value: 'Thammasat University', label: 'Thammasat University' },
+  { value: 'Srinakarinwirot University', label: 'Srinakarinwirot University', acronym: 'SWU' },
+  { value: 'Chulalongkorn university', label: 'Chulalongkorn university', acronym: 'CU' },
+  { value: 'Thammasat University', label: 'Thammasat University', acronym: 'TU' },
 ];
+
+const customStyles = {
+  singleValue:(provided) => ({
+    ...provided,
+    height:'100%',
+    fontSize:'20px',
+    indent:'15px'
+  }),
+}
 
 export class University extends Component {
   constructor(props) {
@@ -81,6 +90,7 @@ export class University extends Component {
     this.setState({ university : selectedOption.value }, () =>
       console.log(`Option selected:`, this.state.university)
     );
+    this.setState({ acronym : selectedOption.acronym })
   };
 
   captureFile(e) {
@@ -133,7 +143,7 @@ export class University extends Component {
     if (errors.length === 0) {
       const { accounts, contract } = this.state;
       const d = new Date();
-      const issuer = await contract.methods.getIssuer(accounts[0]).call();
+      const issuer = await contract.methods.getIssuer(accounts[4]).call();
       console.log(issuer);
       if (issuer === true) {
         if (this.state.buffer != null) {
@@ -250,6 +260,7 @@ export class University extends Component {
                 value={options.find(obj => obj.value === selectedOption)}
                 onChange={this.handleChangeSelected}
                 options={options}
+                styles={customStyles}
               />
               <label htmlFor="acronym">University Acronym*</label>
               <input
@@ -260,6 +271,7 @@ export class University extends Component {
                 onChange={this.handleChange}
                 placeholder="Acronym"
                 type="text"
+                disabled="true"
                 required
               />
               <label htmlFor="course">Course*</label>
@@ -285,7 +297,7 @@ export class University extends Component {
             </FormButton>
           </Container>
           <CertID style={{ display: this.state.showId ? "block" : "none" }}>
-            This is Certificate ID {this.state.certId}
+            Certificate ID {this.state.certId}
           </CertID>
           <div
             style={{ display: this.state.errors.length > 0 ? "block" : "none" }}
@@ -328,25 +340,6 @@ const StyledSelect = styled(Select)`
   margin-bottom: 40px;
 `;
 
-const customStyles = {
-  option: (provided, state) => ({
-    ...provided,
-    borderBottom: '1px dotted pink',
-    color: state.isSelected ? 'red' : 'blue',
-    padding: 20,
-  }),
-  control: () => ({
-    // none of react-select's styles are passed to <Control />
-    width: 200,
-  }),
-  singleValue: (provided, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
-    const transition = 'opacity 300ms';
-
-    return { ...provided, opacity, transition };
-  }
-}
-
 const Form = styled.form`
   width: 100%;
   grid-column-start: 2;
@@ -365,7 +358,7 @@ const FormButton = styled(Button)`
   `
 
 const Error = styled.div`
-  margin: 0% 20% 0% 13%;
+  margin: -3% 0% 0% 15%;
   top: 170px;
   position: absolute;
   border-radius: 10px;
@@ -380,8 +373,9 @@ const Error = styled.div`
 const CertID = styled.div`
   box-shadow: 4px 7px 24px -5px rgb(0 0 0 / 75%);
   display: block;
+  background-color: #ffffff;
   position: absolute;
-  margin-top: 30px;
+  margin-top: 2px;
   padding: 10px;
   border-radius: 10px;
   left: 50%;

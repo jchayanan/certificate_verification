@@ -17,7 +17,7 @@ class Navbar extends Component {
     try {
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts()
-      this.setState({accounts: accounts[0], isConnected: true})
+      this.setState({accounts: accounts[4], isConnected: true})
     } catch (error) {
       this.setState({accounts: " Not Connected ", isConnected: false,})
     }
@@ -31,7 +31,7 @@ class Navbar extends Component {
         <StyledLink to="/company">Company</StyledLink>
         <EndNav>
           <StyledLink style={{color: 'white'}} to="/admin">
-          <span>💼</span>:{this.state.accounts}
+          <span role="img">💼</span>:{this.state.accounts}
           </StyledLink>
         </EndNav>
     </Nav>

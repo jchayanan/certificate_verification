@@ -41,7 +41,7 @@ export default class Admin extends Component {
   submitAddress = async (e) => {
     e.preventDefault();
     const { accounts, contract } = this.state;
-    const issuer = await contract.methods.getIssuer(accounts[0]).call()
+    const issuer = await contract.methods.getIssuer(accounts[4]).call()
     if(issuer === true){
       try {
         await contract.methods

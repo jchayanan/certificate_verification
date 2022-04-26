@@ -75,6 +75,9 @@ label {display: block; font-weight: 400;color: #5c5c5c}
     width: inherit;
     height: 40px;
     margin: 0px 0px 40px 0px;
+    @media (max-height: 745px) {
+        margin: 0px 0px 20px 0px;
+    }
 }
 
 input:focus {

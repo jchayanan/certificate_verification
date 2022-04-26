@@ -119,7 +119,8 @@ class Company extends Component {
           </SectionButton>
         </Container>
         <IdContainer>
-          For Example Certificate : ed52f477-82b5-4b77-85e4-ee910a24d2ad
+          <div>For Example Certificate : 9437cb4b-40b9-4179-b253-3bd32508d360</div>
+          <div>For Example Certificate : ed52f477-82b5-4b77-85e4-ee910a24d2ad</div>
         </IdContainer>
         <ReactModal
           isOpen={this.state.showModal}
@@ -168,7 +169,7 @@ class Company extends Component {
           </a>
           </div>
           <div className="verify">
-          <div style={{fontSize: 30, fontWeight: 400}}>Certificate Verified<span>✅</span></div>
+          <div style={{fontSize: 30, fontWeight: 400}}>Certificate Verified<span role="img">☑️</span></div>
           </div>
           </div>
           </div>
