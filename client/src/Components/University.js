@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import Certification from "../contracts/Certification.json";
 import getWeb3 from "../getWeb3";
 import styled from "styled-components";
+import Select from 'react-select';
 import { v4 as uuidv4 } from "uuid";
 import { encrypt } from "./encrypt.js";
 import ipfs from '../ipfs'
 import { Button, Div } from "../style/style";
 import '../style/style.css';
+
+const options = [
+  { value: 'Srinakarinwirot University', label: 'Srinakarinwirot University' },
+  { value: 'Chulalongkorn university', label: 'Chulalongkorn university' },
+  { value: 'Thammasat University', label: 'Thammasat University' },
+];
 
 export class University extends Component {
   constructor(props) {
@@ -15,6 +22,7 @@ export class University extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.submitData = this.submitData.bind(this);
     this.validate = this.validate.bind(this);
+    this.handleChangeSelected = this.handleChangeSelected.bind(this);
     this.state = {
       storageValue: 0,
       web3: null,
@@ -68,6 +76,12 @@ export class University extends Component {
     });
     //console.log(event.target.name, event.target.value)
   }
+
+  handleChangeSelected(selectedOption) {
+    this.setState({ university : selectedOption.value }, () =>
+      console.log(`Option selected:`, this.state.university)
+    );
+  };
 
   captureFile(e) {
     e.preventDefault();
@@ -205,6 +219,7 @@ export class University extends Component {
       );
     } else {
       const { errors } = this.state;
+      const { selectedOption } = this.state;
       return (
         <Div>
           <Container>
@@ -231,15 +246,10 @@ export class University extends Component {
                 required
               />
               <label htmlFor="university">University*</label>
-              <input
-                className="form"
-                name="university"
-                id="university"
-                value={this.state.university}
-                onChange={this.handleChange}
-                placeholder="University"
-                type="text"
-                required
+              <StyledSelect
+                value={options.find(obj => obj.value === selectedOption)}
+                onChange={this.handleChangeSelected}
+                options={options}
               />
               <label htmlFor="acronym">University Acronym*</label>
               <input
@@ -247,8 +257,8 @@ export class University extends Component {
                 name="acronym"
                 id="acronym"
                 value={this.state.acronym}
-                placeholder="University Acronym"
                 onChange={this.handleChange}
+                placeholder="Acronym"
                 type="text"
                 required
               />
@@ -274,13 +284,17 @@ export class University extends Component {
               ISSUE CERTIFICATE
             </FormButton>
           </Container>
-          <CertID style={{display: this.state.showId ? "block" : "none"}} >This is Certificate ID {this.state.certId}</CertID>
-          <div style={{display: this.state.errors.length > 0 ? "block" : "none"}}>
-          <Error>
-          {errors.map(error => (
-          <p key={error}>Error: {error}</p>
-          ))}
-          </Error>
+          <CertID style={{ display: this.state.showId ? "block" : "none" }}>
+            This is Certificate ID {this.state.certId}
+          </CertID>
+          <div
+            style={{ display: this.state.errors.length > 0 ? "block" : "none" }}
+          >
+            <Error>
+              {errors.map((error) => (
+                <p key={error}>Error: {error}</p>
+              ))}
+            </Error>
           </div>
         </Div>
       );
@@ -305,10 +319,33 @@ const Container = styled.div`
     grid-template-columns: 35px 1fr 35px;
     height: 575px;
   }
-  @media (min-width: 414px) {
+  @media (max-width: 414px) {
     width: 320px;
     height: 560px;
   }`
+
+const StyledSelect = styled(Select)`
+  margin-bottom: 40px;
+`;
+
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted pink',
+    color: state.isSelected ? 'red' : 'blue',
+    padding: 20,
+  }),
+  control: () => ({
+    // none of react-select's styles are passed to <Control />
+    width: 200,
+  }),
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 300ms';
+
+    return { ...provided, opacity, transition };
+  }
+}
 
 const Form = styled.form`
   width: 100%;
@@ -317,8 +354,6 @@ const Form = styled.form`
   grid-row-start: 2;
   grid-row-end: 3;
   text-align: left;
-  @media (max-height: 768px) {
-  }
   `
 
 const FormButton = styled(Button)`
@@ -326,16 +361,20 @@ const FormButton = styled(Button)`
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  height: 50px;`
+  height: 50px;
+  `
 
 const Error = styled.div`
-    right: 400px;
-    top: 175px;
-    position: absolute;
-    box-shadow: 4px 7px 24px -5px rgb(0 0 0 / 75%);
-    border-radius: 10px;
-    padding: 20px;
-    color: #faad14;
+  margin: 0% 20% 0% 13%;
+  top: 170px;
+  position: absolute;
+  border-radius: 10px;
+  padding: 20px;
+  color: #bb7c00;
+  border-style: solid;
+  border-color: #ffc07c;
+  background-color: #ffca5d52;
+      @media (max-width: 1376px) {display: none;}
 `;
 
 const CertID = styled.div`

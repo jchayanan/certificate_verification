@@ -12,7 +12,7 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   width: 60%;
   margin: 10% auto;
-  @media (min-width: 414px) {
+  @media (max-width: 414px) {
     margin: 5% auto;
   }`
 
@@ -33,7 +33,7 @@ const Subheader = styled.div`
   margin-top: -5px;
   margin-bottom: 40px;
   letter-spacing: 5px;
-  @media (min-width: 414px) {
+  @media (max-width: 414px) {
     font-size: 10px;
   }
 `
